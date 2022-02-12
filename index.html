@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="solar.css">
+    <title>Solar System</title>
+</head>
+    
+<body>
+    <div id="container">
+
+        <h1 class="h-1">Calculate a Weight of an object on a planet</h1>
+<div id="repo" class="repo">
+    <input class="input-1" type="text" id="first" placeholder="Mass İn Kilogram"/>
+   
+   <select class="select-1" id="planet" >
+    <option value="">--Select The Planet--</option>
+    <option value="3.70" id="merkur" >Merkür</option>
+    <option value="23.30" id="jupiter">Jupiter</option>
+    <option value="9.80" id="earth">Earth</option>
+    <option value="8.80" id="venüs">Venüs</option>
+    <option value="3.77" id="mars">Mars</option>
+    <option value="9.2" id="saturn">Satürn</option>
+    <option value="8.6" id="uranus">Uranüs</option>
+    <option value="11" id="neptun">Neptün</option>
+</select>
+    <button class="button-1" onclick="myFunction()">Calculate Weight</button>
+    <button class="button-2" onclick="window.location.reload()">Refresh The Page</button>
+</div>
+<!--    -->
+    <div class="aranan" id="aranan">
+   <img class="img-id" id="img-id" src="" alt=""style="width: 400px; height: 300px; display: none; ">
+        <h1 class="aranan-h1" id="aranan-h1">Please enter a Value</h1>
+    </div>
+ </div>
+    
+ <script>
+        
+
+    let bmi
+    let select=document.getElementById('planet')
+   
+    function myFunction(){ 
+        function update(){
+            let vale=select.options[select.selectedIndex].value
+            console.log(vale)
+            return vale
+         }update()
+
+     function marsShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/640px-OSIRIS_Mars_true_color.jpg'
+        img.style.display='block'
+    }
+
+    function jupiterShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://www.webtekno.com/images/editor/default/0001/96/0c833323b7012ef68e20e4519e4c5a55d7ef28c2.jpeg'
+        img.style.display='block'
+    }
+
+    function merkurShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://www.neoldu.com/d/other/grimsi---kahverengi.jpg'
+        img.style.display='block'
+    }
+    function earthShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://cdn.mos.cms.futurecdn.net/3upZx2gxxLpW7MBbnKYQLH-1200-80.jpg'
+        img.style.display='block'
+    }
+    function venüsShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://upload.wikimedia.org/wikipedia/commons/c/c7/PIA23791-Venus-RealAndEnhancedContrastViews-20200608_%28cropped%29.jpg'
+        img.style.display='block'
+    }
+       function satürnShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Saturn_from_Cassini_Orbiter_%282004-10-06%29.jpg/1200px-Saturn_from_Cassini_Orbiter_%282004-10-06%29.jpg'
+        img.style.display='block'
+    }
+       function uranüsShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://cdn.tua.gov.tr/61729c4616035.jpg'
+        img.style.display='block'
+    }
+  
+       function neptunShow(){
+        const img=document.getElementById('img-id')
+        img.src='https://blog.havacilikpsikolojisi.net/wp-content/uploads/2020/12/nept%C3%BCnn-e1607611689740.jpg'
+        img.style.display='block'
+    }
+       
+ function updateİmg(){
+    let vals=select.options[select.selectedIndex].id
+        if(vals=='mars'){
+           return marsShow()
+        }else if (vals=='jupiter'){
+           return jupiterShow()
+        }else if(vals=='merkur'){
+            return merkurShow()
+        }else if(vals=='earth'){
+            return earthShow()
+        }else if(vals=='venüs'){
+            return venüsShow()
+        }else if(vals=='saturn'){
+            return satürnShow()
+        }else if(vals=='uranus'){
+            return uranüsShow()
+        }else if(vals=='neptun'){
+            return neptunShow()
+        }
+    }
+
+      const value1=document.querySelector('#first').value
+      console.log(value1)
+      let toplam=value1*update()
+      if(value1>0){
+      bmi=(`Your weight in ${toplam.toFixed(2)}N`)
+      }else{
+          console.log(pleaseLetValue())
+     } 
+       console.log({bmi})
+        let result
+        result=document.getElementById('aranan-h1')
+        updateİmg()
+        result.innerHTML=bmi
+        const aranan=document.getElementById('aranan')
+        aranan.style.backgroundColor='grey'     
+}
+ </script>   
+</body>
+</html>
